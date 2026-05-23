@@ -23,6 +23,28 @@ launch_date: "2026-07-15"
 status: announced
 ---
 
-CXR14-BPALS adds Bayesian-active-learning confidence metadata to the NIH ChestX-ray14 dataset using a domain-agnostic VLM pipeline. The result is a label-confidence stratified training set, enabling teams to train competitive multi-label chest X-ray models with a fraction of the original labels.
+## What it is
 
-Attribution per NIH terms is included in the data card on Hugging Face.
+CXR14-BPALS layers Bayesian active-learning confidence metadata on top of the NIH ChestX-ray14 multi-label classification dataset (14 thoracic diseases, 112K frontal chest radiographs across 30K patients). Each row carries the original NIH label, a confidence score derived from multi-prompt VLM agreement, and a visual-reasoning trace decomposed across five radiological axes (brightness, markings, abnormal shapes, edges, symmetry). Teams can train competitive multi-label models using stratified high-confidence subsets — often a fraction of the full label set — without sacrificing AUC on the standard test split.
+
+## Why this dataset
+
+Medical imaging AI is increasingly gated behind proprietary models, non-commercial licenses, and large institutional pricing. BiomedCLIP, LLaVA-Med, RadFM and most domain-specific medical VLMs are licensed for academic use only — and large hospital data partnerships sit behind opaque pricing accessible to a handful of well-capitalized incumbents. Clinical AI teams in countries and institutions outside that perimeter often cannot use, or even evaluate, the very tools that would help them.
+
+We chose NIH ChestX-ray14 — a fully unrestricted public dataset — and an open-source general-purpose VLM (Qwen2.5-VL, Apache 2.0) because the result must remain usable by clinical AI startups, academic groups, hospital R&D, and individual researchers who cannot afford the gated medical AI stack. CXR14-BPALS is, in that sense, a small public-interest counterweight to the consolidation of medical imaging AI under a few large vendors.
+
+## Why open-source VLM (and not a medical VLM)
+
+Domain-specific medical VLMs achieve higher raw accuracy on their training distributions, but their licenses prohibit commercial use, their weights are not freely redistributable, and their behavior cannot be audited by parties outside the original lab. An open-source general-purpose VLM under Apache 2.0 is auditable, redistributable, and free to fine-tune — which means CXR14-BPALS can be reproduced, contested, and improved by anyone. The "Bring Your Own VLM" path in the spec is the same principle: if you don't trust ours, run the pipeline with another open VLM and compare.
+
+## A note on medical data pricing and openness
+
+Public medical datasets exist because researchers and institutions chose to release them. The current direction of the field — increasingly proprietary models, paywalled benchmarks, opaque hospital data deals — narrows that lineage. We think the pricing, licensing, and disclosure terms attached to medical AI data deserve more public scrutiny than they currently receive. CXR14-BPALS is one small example of what a permissively-licensed, open-VLM, transparently-documented medical AI dataset can look like. We hope to see more.
+
+## Attribution
+
+CXR14-BPALS includes the NIH attribution required by the original dataset terms:
+
+- Source: https://nihcc.app.box.com/v/ChestXray-NIHCC
+- NIH Clinical Center acknowledgment
+- Wang et al. (2017), CVPR — original ChestX-ray14 paper
