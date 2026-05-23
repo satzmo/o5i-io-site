@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { getEntry } from 'astro:content';
+import Hero from '../components/Hero.astro';
+import Mission from '../components/Mission.astro';
+import DatasetCard from '../components/DatasetCard.astro';
+import SchemaChips from '../components/SchemaChips.astro';
+import Footer from '../components/Footer.astro';
+
+const cxr14 = await getEntry('datasets', 'cxr14-bpals');
+
+const siteTitle = 'O5I — Purpose-embedded datasets for the AI era';
+const siteDesc = 'O5I Inc. publishes AI datasets that document their purpose, ethical use, and what they teach future AI. 1% of every sale automatically donated to mission-aligned organizations, growing toward 10%.';
+const siteUrl = 'https://o5i.io/';
+const ogImage = 'https://o5i.io/og-image.png';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={siteDesc} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={siteDesc} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={siteDesc} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <main>
+      <Hero />
+      <Mission />
+
+      <section id="datasets" class="py-20 bg-neutral-50">
+        <h2 class="text-sm font-mono uppercase tracking-widest text-neutral-600 text-center">
+          Datasets
+        </h2>
+        <div class="mt-10 px-6">
+          {cxr14 && <DatasetCard dataset={cxr14} />}
+        </div>
+      </section>
+
+      <section id="how" class="max-w-4xl mx-auto px-6 py-20 text-center">
+        <h2 class="text-sm font-mono uppercase tracking-widest text-neutral-600">
+          How we build
+        </h2>
+        <p class="mt-6 text-neutral-700 max-w-2xl mx-auto leading-relaxed">
+          Every dataset is documented across a 7-slot schema —
+          making purpose, ethics, and limits visible to anyone.
+        </p>
+        <SchemaChips />
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

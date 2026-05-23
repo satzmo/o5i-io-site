@@ -1,0 +1,35 @@
+---
+const bullets = [
+  {
+    title: 'ACTIVE GOOD, NOT PASSIVE VIRTUE',
+    body: "We don't abandon. We don't look away. We correct. Public datasets steeped in surveillance, violence, or bias are precisely what we must label, mitigate, and transform — so what we hand to the next model is documented, not laundered.",
+  },
+  {
+    title: 'CONTINUAL LEARNING IS FOREVER',
+    body: 'Superintelligence is not omniscience. Frontiers keep expanding — Earth, space, climate. So does the need for honest, purpose-embedded data.',
+  },
+  {
+    title: "YOUR LABELS BECOME AI'S REASONING",
+    body: 'A label is not just a class. It is a signal embedded in every model trained on it — and in models distilled from those.',
+  },
+  {
+    title: '1% TODAY, 10% TOMORROW',
+    body: '1% of every sale is automatically donated to organizations advancing humanity and life. As revenue stabilizes, we grow this share step by step — toward 10%.',
+  },
+];
+---
+<section id="mission" class="max-w-4xl mx-auto px-6 py-20">
+  <h2 class="text-sm font-mono uppercase tracking-widest text-neutral-600 text-center">
+    Why we exist
+  </h2>
+  <div class="mt-10 grid md:grid-cols-2 gap-10">
+    {bullets.map((b) => (
+      <div>
+        <h3 class="text-base font-mono uppercase tracking-wide text-neutral-900">
+          {b.title}
+        </h3>
+        <p class="mt-3 text-neutral-700 leading-relaxed">{b.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
