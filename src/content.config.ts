@@ -23,6 +23,13 @@ const datasets = defineCollection({
     hf_url: z.string().optional(),
     launch_date: z.string(),
     status: z.enum(['draft', 'announced', 'live']),
+    series_roadmap: z.array(z.object({
+      code: z.string(),
+      name: z.string(),
+      layer: z.string(),
+      target_date: z.string(),
+      status: z.enum(['confirmed', 'tentative']),
+    })).optional(),
   }),
 });
 

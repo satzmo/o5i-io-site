@@ -21,6 +21,27 @@ agi_relevance: Cold-start baseline for medical visual reasoning systems. Active-
 automation_load: Quarterly incremental relabeling, single-operator maintainable.
 launch_date: "2026-07-15"
 status: announced
+series_roadmap:
+  - code: S1
+    name: Base
+    layer: NIH 14 multi-label + B-PALS confidence
+    target_date: "2026-07-15"
+    status: confirmed
+  - code: S2
+    name: Diagnosis
+    layer: + 9-label diagnostic refinement (lesion location, observable signs)
+    target_date: "~2026-10"
+    status: tentative
+  - code: S3
+    name: Reasoning
+    layer: + Visual-reasoning trace across five radiological axes
+    target_date: "~2027-01"
+    status: tentative
+  - code: S4
+    name: Reports
+    layer: + Paraphrased HRCT-style report text per image
+    target_date: "~2027-04"
+    status: tentative
 ---
 
 ## What it is
@@ -36,6 +57,15 @@ We chose NIH ChestX-ray14 — a fully unrestricted public dataset — and an ope
 ## Why open-source VLM (and not a medical VLM)
 
 Domain-specific medical VLMs achieve higher raw accuracy on their training distributions, but their licenses prohibit commercial use, their weights are not freely redistributable, and their behavior cannot be audited by parties outside the original lab. An open-source general-purpose VLM under Apache 2.0 is auditable, redistributable, and free to fine-tune — which means CXR14-BPALS can be reproduced, contested, and improved by anyone. The "Bring Your Own VLM" path in the spec is the same principle: if you don't trust ours, run the pipeline with another open VLM and compare.
+
+## Roadmap
+
+CXR14-BPALS is designed as a layered series. Each release adds one labeling layer on top of the previous schema, so a single dataset license accrues value over time rather than fragmenting across competing variants. S1 establishes the schema and a confidence baseline; subsequent series ship only if S1 finds users — we publish on demand validation, not on a fixed roadmap. Dates after S1 are tentative.
+
+- **S1 Base** — 2026-07-15 (confirmed): NIH 14 multi-label classification + B-PALS confidence metadata.
+- **S2 Diagnosis** — ~2026-10 (tentative): adds 9-label diagnostic refinement (lesion location, observable signs).
+- **S3 Reasoning** — ~2027-01 (tentative): adds the visual-reasoning trace decomposed across five radiological axes.
+- **S4 Reports** — ~2027-04 (tentative): adds paraphrased HRCT-style report text per image.
 
 ## A note on medical data pricing and openness
 

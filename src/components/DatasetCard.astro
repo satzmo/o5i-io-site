@@ -36,6 +36,30 @@ const { Content } = await render(dataset);
       <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Cite</dt>
       <dd class="text-neutral-800 italic">{d.citation}</dd>
     </div>
+    {d.series_roadmap && d.series_roadmap.length > 0 && (
+      <div class="grid grid-cols-[100px_1fr] gap-3">
+        <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Roadmap</dt>
+        <dd class="text-neutral-800">
+          <ul class="space-y-1">
+            {d.series_roadmap.map((s) => (
+              <li class="grid grid-cols-[2.2rem_5rem_1fr_auto] gap-2 items-baseline">
+                <span class="font-mono text-xs text-neutral-700">{s.code}</span>
+                <span class="font-medium">{s.name}</span>
+                <span class="text-neutral-700">{s.layer}</span>
+                <span class={s.status === 'confirmed'
+                  ? 'font-mono text-xs text-neutral-900 whitespace-nowrap'
+                  : 'font-mono text-xs text-neutral-600 whitespace-nowrap'}>
+                  {s.target_date} · {s.status}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-2 text-xs text-neutral-600 italic">
+            S1 confirms the schema. Subsequent series ship only if S1 finds users — we publish on demand validation, not on a fixed roadmap.
+          </p>
+        </dd>
+      </div>
+    )}
   </dl>
 
   <div class="mt-8">
