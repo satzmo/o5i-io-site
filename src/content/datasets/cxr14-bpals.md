@@ -39,7 +39,9 @@ Domain-specific medical VLMs achieve higher raw accuracy on their training distr
 
 ## A note on medical data pricing and openness
 
-Public medical datasets exist because researchers and institutions chose to release them. The current direction of the field — increasingly proprietary models, paywalled benchmarks, opaque hospital data deals — narrows that lineage. We think the pricing, licensing, and disclosure terms attached to medical AI data deserve more public scrutiny than they currently receive. CXR14-BPALS is one small example of what a permissively-licensed, open-VLM, transparently-documented medical AI dataset can look like. We hope to see more.
+Medical AI data flows along a deeply asymmetric path. The raw signal — individual patients' bodies, scans, diagnoses, outcomes — is contributed at no compensation, often as a by-product of clinical care. The downstream models trained on that signal are then sold at high markups, frequently to the same institutions whose patients supplied the data, and almost never back to the patients themselves. Public medical datasets exist because researchers and institutions chose to release them. The current direction of the field — increasingly proprietary models, paywalled benchmarks, opaque hospital data deals — narrows that lineage further while preserving the underlying extraction pattern.
+
+We think the pricing, licensing, and disclosure terms attached to medical AI data deserve more public scrutiny than they currently receive. We cannot return value directly to the patients whose scans underlie any medical dataset, but we can refuse to add another layer of enclosure on top of an already asymmetric flow, and we can route 1% of every sale (growing toward 10%) to organizations advancing patient access and public-interest medical research. CXR14-BPALS is one small example of what a permissively-licensed, open-VLM, transparently-documented medical AI dataset can look like. We hope to see more.
 
 ## Attribution
 
