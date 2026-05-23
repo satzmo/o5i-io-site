@@ -7,3 +7,9 @@ dist/
 .env.*.local
 .DS_Store
 *.log
+
+# personal work notes — kept local, mirrored to spark hub
+worklogs/
+
+# DECISIONS.md — local-only decision trail (per workspace policy)
+DECISIONS.md
