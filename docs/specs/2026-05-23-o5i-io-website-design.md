@@ -49,7 +49,7 @@
 | Style | Tailwind CSS 3 | utility-first, 1인 운영 부담 최소, 디자인 일관성 |
 | 호스팅 | Cloudflare Pages | o5i.io zone이 이미 CF에 있어 DNS 통합 자연, 무료 plan 충분, edge 빠름 |
 | DNS | Cloudflare | 기존 zone에 `CNAME @, www → <pages>.pages.dev` 2건 추가 |
-| 저장소 | GitHub `LimJih00n/o5i-io-site` (또는 신규) | CF Pages 자동 빌드 trigger, push 1회로 배포 |
+| 저장소 | GitHub `satzmo/o5i-io-site` (또는 신규) | CF Pages 자동 빌드 trigger, push 1회로 배포 |
 | 언어 | 영어 only, `<html lang="en">` | 글로벌 시간차 시장, semantic HTML로 브라우저 자동번역 친화 |
 
 ### 3.2 데이터 흐름
@@ -155,7 +155,7 @@ Chip은 시각적 element만, 클릭 인터랙션 없음 (MVP).
 O5I Inc.   ·   Sehan Lim, Ph.D.   ·   Republic of Korea
 
 hello@o5i.io     support@o5i.io
-GitHub: github.com/LimJih00n     Hugging Face: huggingface.co/<handle>
+GitHub: github.com/satzmo/o5i-io-site     Hugging Face: huggingface.co/<o5i-handle>
 
 1% → 10% pledge · every sale, automatically.
 Annual transparency report at o5i.io/giving (coming).
@@ -196,14 +196,14 @@ Annual transparency report at o5i.io/giving (coming).
 └── worklogs/                       워크스페이스 메인 워크로그
 ```
 
-GitHub: `LimJih00n/o5i-io-site` (지훈님 계정, 기존 ocean5i.com 동일 패턴 — `.gitignore`에 `.env*`, `dist/`, `node_modules/`)
+GitHub: `satzmo/o5i-io-site` (지훈님 계정, 기존 ocean5i.com 동일 패턴 — `.gitignore`에 `.env*`, `dist/`, `node_modules/`)
 
 VSCode 워크스페이스: `~/vscode-workspace/o5i_io_website_spark.code-workspace` (단일 호스트=spark)
 
 ## 6. 배포·DNS
 
 ### 6.1 CF Pages 셋업
-1. CF dashboard → Pages → Create application → Connect to Git (GitHub LimJih00n/o5i-io-site)
+1. CF dashboard → Pages → Create application → Connect to Git (GitHub satzmo/o5i-io-site)
 2. Build settings: framework preset = Astro, build command = `npm run build`, output dir = `dist`
 3. Production branch = `main`, preview branches = 자동 (PR 마다)
 

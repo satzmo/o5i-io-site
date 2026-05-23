@@ -254,7 +254,7 @@ const year = new Date().getFullYear();
       <a href="mailto:support@o5i.io" class="underline hover:text-neutral-900">support@o5i.io</a>
     </div>
     <div class="space-x-4">
-      <a href="https://github.com/LimJih00n" class="underline hover:text-neutral-900" rel="noopener">GitHub</a>
+      <a href="https://github.com/satzmo/o5i-io-site" class="underline hover:text-neutral-900" rel="noopener">GitHub</a>
       <a href="https://huggingface.co/" class="underline hover:text-neutral-900" rel="noopener">Hugging Face</a>
     </div>
     <div class="text-neutral-500">
@@ -692,7 +692,7 @@ Expected: commit author "O5I Inc. <noreply@o5i.io>". 전역 `~/.gitconfig`는 �
 - [ ] **Step 3: GitHub 신규 repo 생성 (manual, browser)**
 
 대표님 browser: https://github.com/new
-- Owner: `LimJih00n` (지훈님 계정, 기존 ooai-page 패턴)
+- Owner: `satzmo` (대표님 본인 계정, 0.5 doctrine 정합)
 - Repo: `o5i-io-site`
 - Visibility: Private 또는 Public — Public 권장 (CF Pages free plan + open source signal)
 - Add README/.gitignore/license 모두 체크 X (이미 로컬에 있음)
@@ -702,7 +702,7 @@ Expected: commit author "O5I Inc. <noreply@o5i.io>". 전역 `~/.gitconfig`는 �
 
 ```bash
 cd ~/projects/o5i-io-website
-git remote add origin git@github.com:LimJih00n/o5i-io-site.git
+git remote add origin git@github.com:satzmo/o5i-io-site.git
 git push -u origin main
 ```
 Expected: 첫 push 성공. SSH key는 spark에 기존 ocean5i.com 설정 동일 ([[o5i-website]] 참고).
@@ -716,7 +716,7 @@ Expected: 첫 push 성공. SSH key는 spark에 기존 ocean5i.com 설정 동일 
 - [ ] **Step 1: CF Pages 프로젝트 생성**
 
 https://dash.cloudflare.com → Account → Workers & Pages → Create application → Pages → Connect to Git
-- Connect GitHub → `LimJih00n/o5i-io-site` 선택
+- Connect GitHub → `satzmo/o5i-io-site` 선택
 - Build settings:
   - Framework preset: **Astro**
   - Build command: `npm run build`
