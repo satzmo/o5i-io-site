@@ -82,7 +82,7 @@
 ### 4.1 Hero
 - **Headline**: `Purpose-embedded datasets for the AI era.`
 - **Sub-line**: `Every dataset we publish documents its purpose, its limits, and what it teaches future AI.`
-- **Pledge badge** (Hero 아래 작은 chip 형태): `1% of every sale today — growing toward 10% as we scale.`
+- ~~Pledge badge~~ (2026-05-23 제거 — 대표님 결정: "겸손 위배". 자기 약속을 Hero에 광고로 띄우는 것은 0.3 Internal Vigilance + 0.4 Copy Tone Discipline + 0.5 Anonymous Operation 모두에 위배. Pledge는 Mission section bullet 4 + Footer 1줄에만 남김 — 표시는 하되 광고하지 않는다.)
 - **Primary CTA**: `Explore Datasets ↓` (페이지 내 #datasets 앵커)
 - **Secondary CTA**: `Hugging Face Profile →` (외부)
 
