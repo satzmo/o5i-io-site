@@ -22,9 +22,14 @@ automation_load: Quarterly incremental relabeling, single-operator maintainable.
 launch_date: "2026-07-15"
 status: announced
 series_roadmap:
-  - code: S1
-    name: Base
-    layer: NIH 14 multi-label + B-PALS confidence
+  - code: S1a
+    name: Trial release
+    layer: NIH 14 multi-label + B-PALS confidence, free trial subset
+    target_date: "2026-05-26"
+    status: confirmed
+  - code: S1b
+    name: Commercial activation
+    layer: + payment infrastructure, full license terms, 1% giving pledge
     target_date: "2026-07-15"
     status: confirmed
   - code: S2
@@ -60,9 +65,10 @@ Domain-specific medical VLMs achieve higher raw accuracy on their training distr
 
 ## Roadmap
 
-CXR14-BPALS is designed as a layered series. Each release adds one labeling layer on top of the previous schema, so a single dataset license accrues value over time rather than fragmenting across competing variants. S1 establishes the schema and a confidence baseline; subsequent series ship only if S1 finds users — we publish on demand validation, not on a fixed roadmap. Dates after S1 are tentative.
+CXR14-BPALS is designed as a layered series. Each release adds one labeling layer on top of the previous schema, so a single dataset license accrues value over time rather than fragmenting across competing variants. S1 establishes the schema and a confidence baseline, released in two steps so the data is available before the commercial pipeline is wired up. Subsequent series ship only if S1 finds users — we publish on demand validation, not on a fixed roadmap. Dates after S1 are tentative.
 
-- **S1 Base** — 2026-07-15 (confirmed): NIH 14 multi-label classification + B-PALS confidence metadata.
+- **S1a Trial release** — 2026-05-26 (confirmed): NIH 14 multi-label classification + B-PALS confidence metadata, free trial subset for evaluation.
+- **S1b Commercial activation** — 2026-07-15 (confirmed): payment infrastructure, full license terms, and the 1% giving pledge come online.
 - **S2 Diagnosis** — ~2026-10 (tentative): adds 9-label diagnostic refinement (lesion location, observable signs).
 - **S3 Reasoning** — ~2027-01 (tentative): adds the visual-reasoning trace decomposed across five radiological axes.
 - **S4 Reports** — ~2027-04 (tentative): adds paraphrased HRCT-style report text per image.
