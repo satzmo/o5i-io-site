@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 
 interface Props {
   dataset: CollectionEntry<'datasets'>;
@@ -8,6 +9,7 @@ interface Props {
 const { dataset } = Astro.props;
 const d = dataset.data;
 const isLive = d.status === 'live' && !!d.hf_url;
+const { Content } = await render(dataset);
 ---
 <article class="border border-neutral-200 rounded-lg p-8 max-w-2xl mx-auto bg-white">
   <h3 class="text-2xl font-semibold text-neutral-900">{d.name}</h3>
@@ -50,5 +52,9 @@ const isLive = d.status === 'live' && !!d.hf_url;
         View on Hugging Face → (Coming July 2026)
       </span>
     )}
+  </div>
+
+  <div class="mt-10 pt-8 border-t border-neutral-200 prose prose-sm prose-neutral max-w-none prose-headings:font-mono prose-headings:uppercase prose-headings:tracking-wide prose-h2:text-sm prose-h2:text-neutral-700 prose-p:text-neutral-800 prose-p:leading-relaxed">
+    <Content />
   </div>
 </article>
