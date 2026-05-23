@@ -16,9 +16,9 @@ body {
   color: #0b0b0b;
 }
 
-/* auto-translate-friendly: avoid splitting words across lines */
+/* keep words intact on wrap (no auto-hyphenation across lines) */
 p,
 li {
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: manual;
 }
