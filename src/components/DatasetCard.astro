@@ -16,15 +16,15 @@ const { Content } = await render(dataset);
   <p class="mt-2 text-neutral-700">{d.tagline}</p>
 
   <dl class="mt-6 space-y-3 text-sm">
-    <div class="grid grid-cols-[100px_1fr] gap-3">
+    <div class="grid grid-cols-1 gap-1 sm:grid-cols-[100px_1fr] sm:gap-3">
       <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Purpose</dt>
       <dd class="text-neutral-800">{d.purpose}</dd>
     </div>
-    <div class="grid grid-cols-[100px_1fr] gap-3">
+    <div class="grid grid-cols-1 gap-1 sm:grid-cols-[100px_1fr] sm:gap-3">
       <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Frontier</dt>
       <dd class="text-neutral-800">{d.frontier}</dd>
     </div>
-    <div class="grid grid-cols-[100px_1fr] gap-3">
+    <div class="grid grid-cols-1 gap-1 sm:grid-cols-[100px_1fr] sm:gap-3">
       <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">License</dt>
       <dd class="text-neutral-800">
         Trial — {d.accessibility.trial}<br/>
@@ -32,23 +32,25 @@ const { Content } = await render(dataset);
         Enterprise — {d.accessibility.enterprise}
       </dd>
     </div>
-    <div class="grid grid-cols-[100px_1fr] gap-3">
+    <div class="grid grid-cols-1 gap-1 sm:grid-cols-[100px_1fr] sm:gap-3">
       <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Cite</dt>
       <dd class="text-neutral-800 italic">{d.citation}</dd>
     </div>
     {d.series_roadmap && d.series_roadmap.length > 0 && (
-      <div class="grid grid-cols-[100px_1fr] gap-3">
+      <div class="grid grid-cols-1 gap-1 sm:grid-cols-[100px_1fr] sm:gap-3">
         <dt class="font-mono text-neutral-700 uppercase text-xs pt-0.5">Roadmap</dt>
         <dd class="text-neutral-800">
           <ul class="space-y-1">
             {d.series_roadmap.map((s) => (
-              <li class="grid grid-cols-[2.2rem_5rem_1fr_auto] gap-2 items-baseline">
-                <span class="font-mono text-xs text-neutral-700">{s.code}</span>
-                <span class="font-medium">{s.name}</span>
-                <span class="text-neutral-700">{s.layer}</span>
+              <li class="sm:grid sm:grid-cols-[1fr_auto] sm:gap-x-3 sm:items-baseline">
+                <span>
+                  <span class="font-mono text-xs text-neutral-700">{s.code}</span>
+                  <span class="font-medium ml-2">{s.name}</span>
+                  <span class="text-neutral-700"> — {s.layer}</span>
+                </span>
                 <span class={s.status === 'confirmed'
-                  ? 'font-mono text-xs text-neutral-900 whitespace-nowrap'
-                  : 'font-mono text-xs text-neutral-600 whitespace-nowrap'}>
+                  ? 'block sm:text-right font-mono text-xs text-neutral-900 whitespace-nowrap'
+                  : 'block sm:text-right font-mono text-xs text-neutral-600 whitespace-nowrap'}>
                   {s.target_date} · {s.status}
                 </span>
               </li>
