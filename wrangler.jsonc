@@ -15,6 +15,6 @@
   },
   // dwell-time 비콘 적재 (쿠키 없음, GraphQL/SQL로 조회)
   "analytics_engine_datasets": [
-    { "binding": "DWELL", "dataset": "o5i_dwell" }
+    { "binding": "o5i_io_analytic_engine", "dataset": "o5i_io_analytic" }
   ]
 }

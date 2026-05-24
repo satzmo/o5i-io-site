@@ -13,7 +13,7 @@ export default {
         const dwell = Math.min(Math.max(parseInt(d.t, 10) || 0, 0), 1_800_000);
         const scroll = Math.min(Math.max(parseInt(d.s, 10) || 0, 0), 100);
         const cf = request.cf || {};
-        env.DWELL.writeDataPoint({
+        env.o5i_io_analytic_engine.writeDataPoint({
           // blobs: path, country, deviceType(client), os(client), botFlag(headless?), referred?
           blobs: [
             String(d.p || url.pathname).slice(0, 64),
