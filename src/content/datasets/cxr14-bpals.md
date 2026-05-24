@@ -56,7 +56,7 @@ NIH ChestX-ray14 is a public dataset of ~112,000 frontal chest radiographs (30,0
 
 CXR14-BPALS adds an independent **trust signal** over those labels. Each (image, label) pair is re-examined with a vision-language model, producing a per-label confidence and an agreement signal that flags the suspect, hard, and likely-mislabeled cases — including images crowded with support devices (chest tubes, lines, sternotomy wires) that confound both automated and expert labeling. You don't get a relabeled dataset; you get a map of which existing labels to trust, so you can train on the reliable majority and route the rest to review.
 
-The dataset is annotation-only — the trust signal is keyed to each NIH image, which you load from the public upstream source. The baseline covers a curated set of 4,628 images; coverage expands toward the full collection over time.
+The dataset is annotation-only — the trust signal is keyed to each NIH image, which you load from the public upstream source. The baseline covers a curated set of 4,628 images; coverage expands toward the full collection over time. The free evaluation sample is stratified toward harder, lower-confidence cases — it is for assessing the signal, not a random slice of NIH or a measure of its overall error rate.
 
 ## Why this dataset
 
