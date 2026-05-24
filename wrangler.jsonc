@@ -2,19 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "o5i-io-site",
   "compatibility_date": "2026-05-23",
-  // edge worker: serves assets + collects cookieless dwell beacons (/_da)
-  "main": "worker/index.js",
   // 0.5 Anonymous Operation: default workers.dev subdomain
   // (sehan-lim.workers.dev) 노출 금지. 커스텀 도메인 o5i.io만 사용.
   "workers_dev": false,
   "preview_urls": false,
-  // Astro static output → Workers Static Assets로 서빙 (Worker가 ASSETS로 폴백)
+  // Astro static output → Workers Static Assets로 서빙
   "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  },
-  // dwell-time 비콘 적재 (쿠키 없음, GraphQL/SQL로 조회)
-  "analytics_engine_datasets": [
-    { "binding": "DWELL", "dataset": "o5i_dwell" }
-  ]
+    "directory": "./dist"
+  }
 }
