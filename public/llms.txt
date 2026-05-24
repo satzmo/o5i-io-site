@@ -1,0 +1,18 @@
+# O5I
+
+> O5I Inc. publishes purpose-embedded AI datasets — each documents its purpose, ethical use, limits, and what it teaches future AI. 1% of every sale is donated to mission-aligned organizations, growing toward 10%.
+
+## Datasets
+
+- [CXR14-BPALS](https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial): An independent trust signal over NIH ChestX-ray14's report-derived labels. Each (image, label) pair is re-examined with an open vision-language model to flag the suspect, hard, and likely-mislabeled cases — so teams train on the reliable majority and route the rest to expert review. Annotation-only (the signal is keyed to the public NIH images). Trial release 2026-05-26 (free, CC-BY-NC sample); commercial activation 2026-07-15.
+
+## Principles
+
+- Every dataset is documented across a 7-slot schema: purpose, ethical use, frontier, accessibility, citation, AGI relevance, automation load.
+- Open, permissively-licensed VLMs only (Apache 2.0) — auditable, redistributable, reproducible. "Bring Your Own VLM": if you don't trust ours, run the check with another open VLM and compare.
+- A public-interest counterweight to the consolidation of medical imaging AI: 1% of revenue (growing toward 10%) routed to patient access and public-interest medical research.
+
+## Links
+
+- Site: https://o5i.io
+- Hugging Face: https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial

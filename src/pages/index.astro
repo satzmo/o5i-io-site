@@ -13,6 +13,42 @@ const siteTitle = 'O5I — Purpose-embedded datasets for the AI era';
 const siteDesc = 'O5I Inc. publishes AI datasets that document their purpose, ethical use, and what they teach future AI. 1% of every sale automatically donated to mission-aligned organizations, growing toward 10%.';
 const siteUrl = 'https://o5i.io/';
 const ogImage = 'https://o5i.io/og-image.png';
+
+// Structured data — Organization + Dataset (Google Dataset Search + GEO).
+// Dataset fields pulled from the content collection to stay in sync.
+const d = cxr14?.data;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://o5i.io/#org',
+      name: 'O5I Inc.',
+      url: siteUrl,
+      logo: ogImage,
+      description: siteDesc,
+    },
+    d && {
+      '@type': 'Dataset',
+      name: d.name,
+      description: d.purpose,
+      url: 'https://o5i.io/#datasets',
+      sameAs: d.hf_url,
+      creator: { '@id': 'https://o5i.io/#org' },
+      citation: d.citation,
+      datePublished: d.launch_date,
+      isBasedOn: 'https://nihcc.app.box.com/v/ChestXray-NIHCC',
+      keywords: [
+        'NIH ChestX-ray14',
+        'chest radiograph',
+        'label quality',
+        'medical imaging AI',
+        'vision-language model',
+        'active learning',
+      ],
+    },
+  ].filter(Boolean),
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -33,6 +69,8 @@ const ogImage = 'https://o5i.io/og-image.png';
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={siteDesc} />
     <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <main>

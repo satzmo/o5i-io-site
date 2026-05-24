@@ -1,0 +1,9 @@
+# o5i.io — open to search engines and AI crawlers (aligned with our mission).
+# NOTE: takes effect only if Cloudflare's Managed robots.txt / AI-bot blocking
+# is disabled in the dashboard; otherwise CF's managed file overrides this one.
+
+User-agent: *
+Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+Sitemap: https://o5i.io/sitemap-index.xml
