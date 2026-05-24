@@ -1,7 +1,7 @@
 ---
 name: CXR14-BPALS
-tagline: Domain-agnostic label confidence on NIH ChestX-ray14 via Bayesian Active Learning.
-purpose: Reduce labeling cost up to ~12x via confidence-stratified subsets. Bring your own VLM, train smarter.
+tagline: "Start by finding what's wrong. Refine from there."
+purpose: "An independent trust signal over NIH ChestX-ray14's report-derived labels — find which to trust, and focus expert review where it's actually needed."
 ethical_use:
   allowed:
     - Medical research
@@ -13,18 +13,19 @@ ethical_use:
     - Military medical targeting
 frontier: Medical imaging baselines for global-south clinical AI startups and academic groups.
 accessibility:
-  trial: Free, CC-BY-NC, 1K rows preview
-  standard: Commercial license, full 112K rows, 1-year non-exclusive
-  enterprise: Custom — perpetual + custom domain adaptation
-citation: "Lim, S. (2026). CXR14-BPALS: Bayesian Active Learning for Multi-Label Chest X-ray Diagnosis. Hugging Face Datasets."
-agi_relevance: Cold-start baseline for medical visual reasoning systems. Active-learning reasoning trace embedded as upstream signal for future foundation models.
-automation_load: Quarterly incremental relabeling, single-operator maintainable.
+  trial: Free, CC-BY-NC, 1,000-row sample
+  standard: Commercial license, full 6,598 rows (4,628 images), 1-year non-exclusive — pricing to be announced at commercial release (2026-07-15)
+  enterprise: Custom coverage — perpetual + domain adaptation
+citation: "Lim, S. (2026). CXR14-BPALS: An Independent Label-Quality Signal for NIH ChestX-ray14. Hugging Face Datasets."
+agi_relevance: An upstream data-curation layer (label-quality + active-learning signal) for teams building medical visual-reasoning systems.
+automation_load: Quarterly incremental refinement, single-operator maintainable.
+hf_url: https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial
 launch_date: "2026-07-15"
 status: announced
 series_roadmap:
   - code: S1a
     name: Trial release
-    layer: NIH 14 multi-label + B-PALS confidence, free trial subset
+    layer: Per-(image, label) trust signal + flagged hard-case set, free sample
     target_date: "2026-05-26"
     status: confirmed
   - code: S1b
@@ -33,45 +34,51 @@ series_roadmap:
     target_date: "2026-07-15"
     status: confirmed
   - code: S2
-    name: Diagnosis
-    layer: + 9-label diagnostic refinement (lesion location, observable signs)
+    name: Diagnose
+    layer: + diagnostic refinement (lesion location, observable signs)
     target_date: "~2026-10"
     status: tentative
   - code: S3
-    name: Reasoning
-    layer: + Visual-reasoning trace across five radiological axes
+    name: Reason
+    layer: + the reasoning detail behind each judgment
     target_date: "~2027-01"
     status: tentative
   - code: S4
-    name: Reports
-    layer: + Paraphrased HRCT-style report text per image
+    name: Report
+    layer: + paraphrased report-style text per image
     target_date: "~2027-04"
     status: tentative
 ---
 
 ## What it is
 
-CXR14-BPALS layers Bayesian active-learning confidence metadata on top of the NIH ChestX-ray14 multi-label classification dataset (14 thoracic diseases, 112K frontal chest radiographs across 30K patients). Each row carries the original NIH label, a confidence score derived from multi-prompt VLM agreement, and a visual-reasoning trace decomposed across five radiological axes (brightness, markings, abnormal shapes, edges, symmetry). Teams can train competitive multi-label models using stratified high-confidence subsets — often a fraction of the full label set — without sacrificing AUC on the standard test split.
+NIH ChestX-ray14 is a public dataset of ~112,000 frontal chest radiographs (30,000 patients, 14 thoracic-disease labels). Its labels were extracted automatically from radiology reports rather than verified against the images, so a meaningful share are noisy or wrong.
+
+CXR14-BPALS adds an independent **trust signal** over those labels. Each (image, label) pair is re-examined with a vision-language model, producing a per-label confidence and an agreement signal that flags the suspect, hard, and likely-mislabeled cases — including images crowded with support devices (chest tubes, lines, sternotomy wires) that confound both automated and expert labeling. You don't get a relabeled dataset; you get a map of which existing labels to trust, so you can train on the reliable majority and route the rest to review.
+
+The dataset is annotation-only — the trust signal is keyed to each NIH image, which you load from the public upstream source. The baseline covers a curated set of 4,628 images; coverage expands toward the full collection over time.
 
 ## Why this dataset
 
 Medical imaging AI is increasingly gated behind proprietary models, non-commercial licenses, and large institutional pricing. BiomedCLIP, LLaVA-Med, RadFM and most domain-specific medical VLMs are licensed for academic use only — and large hospital data partnerships sit behind opaque pricing accessible to a handful of well-capitalized incumbents. Clinical AI teams in countries and institutions outside that perimeter often cannot use, or even evaluate, the very tools that would help them.
 
-We chose NIH ChestX-ray14 — a fully unrestricted public dataset — and an open-source general-purpose VLM (Qwen2.5-VL, Apache 2.0) because the result must remain usable by clinical AI startups, academic groups, hospital R&D, and individual researchers who cannot afford the gated medical AI stack. CXR14-BPALS is, in that sense, a small public-interest counterweight to the consolidation of medical imaging AI under a few large vendors.
+We chose NIH ChestX-ray14 — a fully unrestricted public dataset — and an open, permissively-licensed general-purpose VLM (Apache 2.0) because the result must remain usable by clinical AI startups, academic groups, hospital R&D, and individual researchers who cannot afford the gated medical AI stack. CXR14-BPALS is, in that sense, a small public-interest counterweight to the consolidation of medical imaging AI under a few large vendors.
 
-## Why open-source VLM (and not a medical VLM)
+## Why an open VLM (and not a medical VLM)
 
-Domain-specific medical VLMs achieve higher raw accuracy on their training distributions, but their licenses prohibit commercial use, their weights are not freely redistributable, and their behavior cannot be audited by parties outside the original lab. An open-source general-purpose VLM under Apache 2.0 is auditable, redistributable, and free to fine-tune — which means CXR14-BPALS can be reproduced, contested, and improved by anyone. The "Bring Your Own VLM" path in the spec is the same principle: if you don't trust ours, run the pipeline with another open VLM and compare.
+Domain-specific medical VLMs achieve higher raw accuracy on their training distributions, but their licenses prohibit commercial use, their weights are not freely redistributable, and their behavior cannot be audited by parties outside the original lab. An open, Apache-2.0 general-purpose VLM is auditable, redistributable, and free to fine-tune — which means CXR14-BPALS can be reproduced, contested, and improved by anyone. The "Bring Your Own VLM" principle is the same: if you don't trust ours, run the check with another open VLM and compare.
 
 ## Roadmap
 
-CXR14-BPALS is designed as a layered series. Each release adds one labeling layer on top of the previous schema, so a single dataset license accrues value over time rather than fragmenting across competing variants. S1 establishes the schema and a confidence baseline, released in two steps so the data is available before the commercial pipeline is wired up. Subsequent series ship only if S1 finds users — we publish on demand validation, not on a fixed roadmap. Dates after S1 are tentative.
+CXR14-BPALS is a layered series. The baseline **identifies** label problems; each later release **deepens** the refinement on the same data, while **coverage broadens** toward the full NIH set — a single license accrues value over time rather than fragmenting across competing variants. Releases after S1 ship on demonstrated demand, not a fixed schedule; dates after S1 are tentative.
 
-- **S1a Trial release** — 2026-05-26 (confirmed): NIH 14 multi-label classification + B-PALS confidence metadata, free trial subset for evaluation.
-- **S1b Commercial activation** — 2026-07-15 (confirmed): payment infrastructure, full license terms, and the 1% giving pledge come online.
-- **S2 Diagnosis** — ~2026-10 (tentative): adds 9-label diagnostic refinement (lesion location, observable signs).
-- **S3 Reasoning** — ~2027-01 (tentative): adds the visual-reasoning trace decomposed across five radiological axes.
-- **S4 Reports** — ~2027-04 (tentative): adds paraphrased HRCT-style report text per image.
+- **S1a Trial release** — 2026-05-26 (confirmed): per-(image, label) trust signal and the flagged hard-case set, as a free evaluation sample.
+- **S1b Commercial activation** — 2026-07-15 (confirmed): full license terms, payment infrastructure, and the 1% giving pledge come online.
+- **S2 Diagnose** — ~2026-10 (tentative): diagnostic refinement (lesion location, observable signs).
+- **S3 Reason** — ~2027-01 (tentative): the reasoning detail behind each judgment.
+- **S4 Report** — ~2027-04 (tentative): paraphrased report-style text per image.
+
+Alongside this depth ladder, coverage expands from the baseline subset toward the full ~112K collection.
 
 ## A note on medical data pricing and openness
 
