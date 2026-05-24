@@ -14,7 +14,8 @@ export default {
         const scroll = Math.min(Math.max(parseInt(d.s, 10) || 0, 0), 100);
         const cf = request.cf || {};
         env.o5i_io_analytic_engine.writeDataPoint({
-          // blobs: path, country, deviceType(client), os(client), botFlag(headless?), referred?
+          // blobs: path, country, deviceType(client), os(client), botFlag(headless?),
+          //        referred?, city, region(시·도), colo(CF edge PoP) — geo from request.cf
           blobs: [
             String(d.p || url.pathname).slice(0, 64),
             cf.country || "??",
@@ -22,6 +23,9 @@ export default {
             String(d.os || "?").slice(0, 24),
             d.hl ? "headless" : "normal",
             d.r ? "ref" : "direct",
+            String(cf.city || "?").slice(0, 48),
+            String(cf.region || "?").slice(0, 48),
+            String(cf.colo || "?").slice(0, 8),
           ],
           doubles: [dwell, scroll],
           indexes: [String(d.p || url.pathname).slice(0, 32)],
