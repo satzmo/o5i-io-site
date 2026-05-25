@@ -4,7 +4,7 @@
 
 ## Datasets
 
-- [CXR14-BPALS](https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial): An independent trust signal over NIH ChestX-ray14's report-derived labels. Each (image, label) pair is re-examined with an open vision-language model to flag the suspect, hard, and likely-mislabeled cases — so teams train on the reliable majority and route the rest to expert review. Annotation-only (the signal is keyed to the public NIH images). Trial release 2026-05-26 (free, CC-BY-NC sample); commercial activation 2026-07-15.
+- [CXR14-BPALS](https://huggingface.co/datasets/o5i/cxr14-bpals-trial): An independent trust signal over NIH ChestX-ray14's report-derived labels. Each (image, label) pair is re-examined with an open vision-language model to flag the suspect, hard, and likely-mislabeled cases — so teams train on the reliable majority and route the rest to expert review. Annotation-only (the signal is keyed to the public NIH images). Trial release 2026-05-26 (free, CC-BY-NC sample); commercial activation 2026-07-15.
 
 ## Principles
 
@@ -15,4 +15,4 @@
 ## Links
 
 - Site: https://o5i.io
-- Hugging Face: https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial
+- Hugging Face: https://huggingface.co/datasets/o5i/cxr14-bpals-trial

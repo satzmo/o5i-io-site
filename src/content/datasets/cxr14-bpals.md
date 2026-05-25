@@ -19,7 +19,7 @@ accessibility:
 citation: "Lim, S. (2026). CXR14-BPALS: An Independent Label-Quality Signal for NIH ChestX-ray14. Hugging Face Datasets."
 agi_relevance: An upstream data-curation layer (label-quality + active-learning signal) for teams building medical visual-reasoning systems.
 automation_load: Quarterly incremental refinement, single-operator maintainable.
-hf_url: https://huggingface.co/datasets/ocean5i/cxr14-bpals-trial
+hf_url: https://huggingface.co/datasets/o5i/cxr14-bpals-trial
 launch_date: "2026-07-15"
 status: announced
 series_roadmap:
