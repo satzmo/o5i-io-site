@@ -9,6 +9,13 @@ interface Props {
 const { dataset } = Astro.props;
 const d = dataset.data;
 const isLive = d.status === 'live' && !!d.hf_url;
+// Not-yet-live CTA label: derive "Coming <Month Year>" from the first confirmed
+// roadmap entry so it tracks the schedule instead of drifting (cf. the stale
+// "July 2026" left over from the pre-S1a/S1b split).
+const upcoming = d.series_roadmap?.find((s) => s.status === 'confirmed');
+const comingLabel = upcoming?.target_date
+  ? new Date(upcoming.target_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  : null;
 const { Content } = await render(dataset);
 ---
 <article class="border border-neutral-200 rounded-lg p-8 max-w-2xl mx-auto bg-white">
@@ -75,7 +82,7 @@ const { Content } = await render(dataset);
       </a>
     ) : (
       <span class="inline-block px-5 py-2 rounded bg-neutral-200 text-neutral-700 font-medium cursor-not-allowed">
-        View on Hugging Face → (Coming July 2026)
+        View on Hugging Face →{comingLabel ? ` (Coming ${comingLabel})` : ''}
       </span>
     )}
   </div>
