@@ -10,7 +10,7 @@ import Footer from '../components/Footer.astro';
 const cxr14 = await getEntry('datasets', 'cxr14-bpals');
 
 const siteTitle = 'O5I — Purpose-embedded datasets for the AI era';
-const siteDesc = 'O5I Inc. publishes AI datasets that document their purpose, ethical use, and what they teach future AI. 1% of every sale automatically donated to mission-aligned organizations, growing toward 10%.';
+const siteDesc = 'O5I publishes AI datasets that document their purpose, ethical use, and what they teach future AI. 1% of every sale automatically donated to mission-aligned organizations, growing toward 10%.';
 const siteUrl = 'https://o5i.io/';
 const ogImage = 'https://o5i.io/og-image.png';
 
@@ -23,7 +23,8 @@ const jsonLd = {
     {
       '@type': 'Organization',
       '@id': 'https://o5i.io/#org',
-      name: 'O5I Inc.',
+      name: 'O5I',
+      legalName: 'O5I Co., Ltd.',
       url: siteUrl,
       logo: ogImage,
       description: siteDesc,

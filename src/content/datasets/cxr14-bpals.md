@@ -16,7 +16,7 @@ accessibility:
   trial: Free, CC-BY-NC, 1,000-row sample
   standard: Commercial license, full 6,598 rows (4,628 images), 1-year non-exclusive — pricing to be announced at commercial release (2026-07-15)
   enterprise: Custom coverage — perpetual + domain adaptation
-citation: "Lim, S. (2026). CXR14-BPALS: An Independent Label-Quality Signal for NIH ChestX-ray14. Hugging Face Datasets."
+citation: "O5I (2026). CXR14-BPALS: An Independent Label-Quality Signal for NIH ChestX-ray14. Hugging Face Datasets."
 agi_relevance: An upstream data-curation layer (label-quality + active-learning signal) for teams building medical visual-reasoning systems.
 automation_load: Quarterly incremental refinement, single-operator maintainable.
 hf_url: https://huggingface.co/datasets/o5i/cxr14-bpals-trial
