@@ -18,6 +18,7 @@ const datasets = defineCollection({
       enterprise: z.string(),
     }),
     citation: z.string(),
+    license: z.string().optional(),
     agi_relevance: z.string(),
     automation_load: z.string(),
     hf_url: z.string().optional(),

@@ -37,6 +37,7 @@ const jsonLd = {
       sameAs: d.hf_url,
       creator: { '@id': 'https://o5i.io/#org' },
       citation: d.citation,
+      license: d.license,
       datePublished: d.launch_date,
       isBasedOn: 'https://nihcc.app.box.com/v/ChestXray-NIHCC',
       keywords: [
@@ -59,6 +60,7 @@ const jsonLd = {
     <title>{siteTitle}</title>
     <meta name="description" content={siteDesc} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={siteUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
