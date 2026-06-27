@@ -16,6 +16,9 @@ const datasets = defineCollection({
       trial: z.string(),
       standard: z.string(),
       enterprise: z.string(),
+      // v1 결제 통합 (채널 중립 — Dodo Hosted Checkout URL 등)
+      standard_price_usd: z.number().optional(),
+      standard_buy_url: z.string().url().optional(),
     }),
     citation: z.string(),
     license: z.string().optional(),
