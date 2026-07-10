@@ -14,7 +14,7 @@ ethical_use:
 frontier: Medical imaging baselines for global-south clinical AI startups and academic groups.
 accessibility:
   trial: Free, CC-BY-NC, 1,000-row sample
-  standard: Commercial license, full 6,598 rows (4,628 images), 1-year non-exclusive — pricing to be announced at commercial release (2026-07-15)
+  standard: Commercial license, full 6,598 rows (4,628 images), 1-year non-exclusive — pricing on request (hello@o5i.io)
   enterprise: Custom coverage — perpetual + domain adaptation
 citation: "O5I (2026). CXR14-BPALS: An Independent Label-Quality Signal for NIH ChestX-ray14. Hugging Face Datasets."
 license: "https://creativecommons.org/licenses/by-nc/4.0/"
@@ -32,8 +32,8 @@ series_roadmap:
   - code: S1b
     name: Commercial activation
     layer: + payment infrastructure, full license terms, 1% giving pledge
-    target_date: "2026-07-15"
-    status: confirmed
+    target_date: "~2026-Q4"
+    status: tentative
   - code: S2
     name: Diagnose
     layer: + diagnostic refinement (lesion location, observable signs)
@@ -74,7 +74,7 @@ Domain-specific medical VLMs achieve higher raw accuracy on their training distr
 CXR14-BPALS is a layered series. The baseline **identifies** label problems; each later release **deepens** the refinement on the same data, while **coverage broadens** toward the full NIH set — a single license accrues value over time rather than fragmenting across competing variants. Releases after S1 ship on demonstrated demand, not a fixed schedule; dates after S1 are tentative.
 
 - **S1a Trial release** — 2026-05-26 (confirmed): per-(image, label) trust signal and the flagged hard-case set, as a free evaluation sample.
-- **S1b Commercial activation** — 2026-07-15 (confirmed): full license terms, payment infrastructure, and the 1% giving pledge come online.
+- **S1b Commercial activation** — ~2026-Q4 (tentative): full license terms, payment infrastructure, and the 1% giving pledge come online.
 - **S2 Diagnose** — ~2026-10 (tentative): diagnostic refinement (lesion location, observable signs).
 - **S3 Reason** — ~2027-01 (tentative): the reasoning detail behind each judgment.
 - **S4 Report** — ~2027-04 (tentative): paraphrased report-style text per image.
